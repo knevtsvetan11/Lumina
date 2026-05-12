@@ -1,0 +1,43 @@
+<div class="container">
+  <nav class="navbar">
+    <h1>👤AdminDashboard🔧</h1>
+    <span class="nav-btn" routerLink="/adminchats"
+      >Inbox<mat-icon class="msg-icon">chat</mat-icon></span
+    >
+  </nav>
+  <div class="statistics-card">
+    <h2 class="title">Statistics:</h2>
+    <h2>Movies: {{ moviesCount() }}</h2>
+    <h2>Cinemas: {{ cinemasCount() }}</h2>
+    <h2>Screenings: {{ screeningsCount() }}</h2>
+    <h2>Users: {{ usersCount() }}</h2>
+  </div>
+
+  <div class="main-card">
+    <section>
+      <h2 class="title-manage">✔️Special permissions:</h2>
+      <button mat-button routerLink="/permissions">User-Permissions</button>
+      <h2 class="title-manage">✔️Manage Roles:</h2>
+      <button mat-button routerLink="/roles">Roles</button>
+
+      <h2 class="title-manage">👤Manage Users:</h2>
+      <!-- <button class="btn-manage">Create User</button>
+            <button class="btn-manage">Delete User</button>
+            <button class="btn-manage">Show All Users</button> -->
+      <!-- <button class="btn-manage">Edit User</button> -->
+      <button mat-button routerLink="/users">Users</button>
+    </section>
+    <section>
+      <h2 class="title-manage">✔️Quick Actions:</h2>
+      <button class="btn-manage">➕Create Movie</button>
+      <button class="btn-manage" routerLink="/movies/create">➕Create Cinema</button>
+      <button class="btn-manage">➕Create Screening</button>
+    </section>
+    <section>
+      <h2 class="title-manage">🔧Manage:</h2>
+      <button class="btn-manage" routerLink="/movies">Manage Movies</button>
+      <button class="btn-manage" routerLink="/cinemas">Manage Cinemas</button>
+      <button class="btn-manage">Manage Screenings</button>
+    </section>
+  </div>
+</div>

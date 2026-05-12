@@ -1,0 +1,79 @@
+.navbar {
+  display: grid;
+  position: fixed;
+  top: 0%;
+  background-color: rgb(101, 88, 141);
+  z-index: 3;
+}
+
+.title {
+  font-style: italic;
+  font-weight: 900;
+  font-weight: bolder;
+  font-size: x-large;
+}
+
+.search {
+  background-color: black;
+
+  height: 40px;
+  border-radius: 3%;
+}
+.search-title {
+  color: white;
+}
+.filter-title {
+  color: white;
+}
+
+.users-wrapper {
+  background-color: rgba(0, 0, 0, 0.932);
+  height: 100%;
+  width: 60%;
+  margin-top: 30px;
+  margin-left: 5px;
+  border-radius: 2px;
+}
+
+.users-title {
+  color: white;
+  margin-left: 10px;
+}
+.selected-user {
+  background-color: #1d7dc1 !important;
+}
+.mat-card {
+  margin-left: 20px;
+  margin-bottom: 5px;
+  width: 90%;
+  height: 90%;
+  margin-top: 10px;
+  background-color: rgb(210, 208, 216);
+}
+
+.permissions {
+  display: flexbox;
+  width: 40%;
+  background-color: white;
+  margin-left: 59%;
+  border: 2px solid black;
+  border-radius: 2px;
+}
+.paginator {
+  background-color: rgb(159, 124, 60);
+}
+
+.card-right {
+  margin-top: 10px;
+  width: 100%;
+  height: 600px;
+  background-color: rgb(133, 121, 187);
+}
+.card-title {
+  margin-top: 0%;
+  background-color: black;
+  color: white;
+}
+.save-btn {
+  background-color: #1d7dc1;
+}

@@ -1,0 +1,40 @@
+<div class="create-form">
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <mat-form-field>
+      <mat-label>Title:</mat-label>
+      <input matInput formControlName="title" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Genre:</mat-label>
+      <input matInput formControlName="genre" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>ReleaseData:</mat-label>
+      <input matInput formControlName="releaseDate" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Director:</mat-label>
+      <input matInput formControlName="director" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Duration:</mat-label>
+      <input matInput formControlName="duration" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Description:</mat-label>
+      <input matInput formControlName="description" />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>ImageUrl:</mat-label>
+      <input matInput formControlName="imageUrl" />
+    </mat-form-field>
+
+    <button type="submit">Submit</button>
+  </form>
+</div>

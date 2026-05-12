@@ -1,0 +1,62 @@
+.navbar {
+  display: flex;
+  position: fixed;
+  top: 0%;
+  background-color: rgb(101, 88, 141);
+  z-index: 3;
+}
+
+.main-wrapper {
+  display: flex;
+}
+
+.title {
+  font-style: italic;
+  font-weight: 900;
+  font-weight: bolder;
+  font-size: x-large;
+}
+
+.save-btn {
+  background-color: rgb(101, 88, 141);
+  width: 20px;
+  margin-left: 80%;
+}
+
+.role-list {
+  position: sticky;
+  background-color: rgba(20, 19, 19, 0.913);
+  width: 40%;
+  height: 90%;
+  border-radius: 4px;
+  margin-left: 5px;
+  margin-right: 5px;
+}
+.add-role-card {
+  width: 90%;
+  height: 20%;
+  margin-top: 5px;
+  margin-left: 20px;
+}
+
+.active-role {
+  background-color: rgb(94, 94, 179);
+  border: 2px solid darkblue;
+}
+
+.mat-card {
+  width: 90%;
+  margin-top: 5px;
+  margin-left: 20px;
+  margin-bottom: 5px;
+}
+
+.permission-container {
+  background-color: white;
+  flex: 2;
+  width: 60%;
+  border-radius: 5px;
+  display: inline;
+  margin-right: 5px;
+  border: 2px solid rgb(77, 97, 137);
+}

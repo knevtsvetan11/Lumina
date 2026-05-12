@@ -1,0 +1,36 @@
+ <mat-toolbar class="navbar">
+    <h1 class="title">Cinema📽️</h1>
+    <select class="drop-down-menu" [(ngModel)]="selectedOption" (ngModelChange)="navigate($event)">
+      @for (item of options; track item) {
+      <option [value]="item">
+        {{item}}
+      </option>
+      }
+    </select>
+    <span class="spacer"></span>
+    @if (isLoggedIn()) {
+   
+       <p class="loged-text">Welcome {{getEmail()}}!</p>
+      @if(authService.isAdmin()){
+      <button mat-button class="mat-btn" routerLink="/admin">Admin</button>
+      }
+
+      <button mat-button  class="mat-btn"  (click)="logout()">Logout</button>
+      <button mat-button    class="mat-btn" routerLink="/watchlist">Watchlist</button>
+    }
+    @if (!isLoggedIn()) {
+    
+      <button mat-button    class="mat-btn" routerLink="/login">Login</button>
+      <button mat-button  class="mat-btn" routerLink="/register">Register</button>
+
+    }
+  </mat-toolbar>
+
+<div class="container">
+  <section class="welcome card">
+    <h2 class="main-title">Welcome to <span class="brand-highlight">MovieApp</span></h2>
+    <p>Discover the latest movies and explore cinemas near you.</p>
+    <button routerLink="/movies" class="btn-primary">Browse Movies</button>
+    <button routerLink="/cinemas" class="btn-secondary">Find Cinemas</button>
+  </section>
+</div>

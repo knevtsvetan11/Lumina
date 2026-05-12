@@ -1,0 +1,105 @@
+ .navbar {
+
+   position: fixed;
+   top: 0%;
+   display: flex;
+   background: rgb(0, 0, 0);
+
+
+   .title {
+
+     font-size: 3rem;
+     font-weight: bold;
+     background: linear-gradient(#ff6a00, #ee0979);
+     -webkit-background-clip: text;
+     -webkit-text-fill-color: transparent;
+     font-family: 'Cinzel', serif;
+   }
+
+    .spacer{
+      flex: 1 1 auto;
+    }
+
+    .mat-btn{
+      background-color: white;
+      margin: 1px;
+    }
+
+   .loged-text {
+     color: rgb(255, 136, 0);
+     background-color: black;
+     font-size: small;
+   }
+
+   .drop-down-menu {
+     background-color: white;
+     color: gray;
+     padding: 5px;
+     border-radius: 7px;
+     background-color: white;
+
+     font-size: 90%;
+   }
+
+
+
+ }
+
+ .container {
+   .welcome.card {
+     margin-left: 6%;
+     margin-top: 4%;
+     max-width: 600px;
+     background: rgba(0, 0, 0, 0.936); // по-тъмен прозрачен фон
+     border-radius: 12px;
+     padding: 20%;
+     box-shadow: 0 0 25px rgba(0, 0, 0, 0.8); // по-силен сенчест ефект
+
+     .main-title {
+       margin-top: -25%;
+       margin-left: 6%;
+       font-size: 3rem;
+       margin-bottom: 1rem;
+       color: #ffd700;
+       font-family: 'Cinzel', serif;
+       text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.7);
+     }
+
+     p {
+       margin-left: 8%;
+       font-size: 1.2rem;
+       margin-bottom: 2rem;
+       color: #eee;
+     }
+
+     .btn-primary,
+     .btn-secondary {
+       padding: 1rem 2rem;
+       margin: 0.5rem;
+       border: none;
+       border-radius: 5px;
+       cursor: pointer;
+       font-size: 1.1rem;
+       transition: background 0.3s;
+     }
+
+     .btn-primary {
+       margin-left: 12%;
+       background: #ffd700;
+       color: #000;
+
+       &:hover {
+         background: #ffcc00;
+       }
+     }
+
+     .btn-secondary {
+       background: #444;
+       color: #fff;
+
+       &:hover {
+         background: #666;
+       }
+     }
+   }
+ }

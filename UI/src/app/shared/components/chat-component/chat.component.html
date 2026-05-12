@@ -1,0 +1,41 @@
+@if (authService.isLoggedIn() && authService.isAdmin() == false) {
+  <div class="main-wrapper">
+    <button mat-fab (click)="toggleChat()">Chat</button>
+    @if (isOpen()) {
+      <mat-card class="card">
+        <mat-card-header class="card-header">
+          <mat-card-title class="card-title">Support chat</mat-card-title>
+        </mat-card-header>
+        <mat-card-content #scrollMe id="chat-window" (scroll)="onScroll($event)" class="msg-area">
+          @if (isFetching()) {
+            <div class="spinner">
+              <mat-spinner diameter="30"></mat-spinner>
+              <span>loading history....</span>
+            </div>
+          }
+          @for (msg of messages(); track msg.id) {
+            @if (msg.senderId === userId()) {
+              <div class="sender-msg">
+                <p>{{ msg.message }}</p>
+                <span class="sent-time">{{ msg.sentAt | date: 'HH:mm' }}</span>
+                <mat-icon>person</mat-icon>
+              </div>
+            } @else {
+              <div class="receiver-msg">
+                <mat-icon>verified</mat-icon>
+                <span class="sent-time">{{ msg.sentAt | date: 'HH:mm' }}</span>
+                <p>{{ msg.message }}</p>
+              </div>
+            }
+          }
+        </mat-card-content>
+        <mat-card-actions class="actions-area">
+          <form [formGroup]="chatForm">
+            <input formControlName="message" placeholder="write a message..." />
+          </form>
+          <button mat-button (click)="sendMessage()">send</button> <mat-icon>send</mat-icon>
+        </mat-card-actions>
+      </mat-card>
+    }
+  </div>
+}

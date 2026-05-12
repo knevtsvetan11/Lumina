@@ -1,0 +1,18 @@
+
+<nav class="navbar">
+  <span class="page-logo">Watchlist❤️</span>
+</nav>
+<div class="watchlist-container">
+  @for (movie of watchlists(); track movie) {
+    <div class="card-movie">
+      <img [src]="movie.imageUrl" width="150">
+      <p><strong>Title:</strong>{{movie.title}}</p>
+      <p><strong>Genre:</strong>{{movie.genre}}</p>
+      <p><strong>Director:</strong>{{movie.director}}</p>
+      <p><strong>Duration:</strong>{{movie.duration}}</p>
+      <button class="rem-btn" (click)="removeFromWatchlist(movie.movieId)">Remove</button>
+    </div>
+  }
+
+
+</div>

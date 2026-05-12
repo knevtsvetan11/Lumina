@@ -1,0 +1,45 @@
+<div class="login-container">
+  <form [formGroup]="registerForm" (ngSubmit)="register()">
+    <h1>Registration</h1>
+
+    <label>First Name:</label>
+    <input matInput formControlName="firstName" placeholder="Enter first name" />
+    @if (registerForm.get('firstName')?.invalid && registerForm.get('firstName')?.touched) {
+      <span class="error-msg">First name is required.</span>
+    }
+
+    <label>Last Name:</label>
+    <input matInput formControlName="lastName" placeholder="Enter last name" />
+    @if (registerForm.get('lastName')?.invalid && registerForm.get('lastName')?.touched) {
+      <span class="error-msg">Last name is required.</span>
+    }
+
+    <label>UserName:</label>
+    <input matInput formControlName="username" placeholder="Choose a username" />
+    @if (registerForm.get('username')?.invalid && registerForm.get('username')?.touched) {
+      <span class="error-msg">Username must be at least 3 characters.</span>
+    }
+
+    <label>Email:</label>
+    <input matInput type="email" formControlName="email" placeholder="name@example.com" />
+    @if (registerForm.get('email')?.touched && registerForm.get('email')?.invalid) {
+      <span class="error-msg">Enter a valid email address.</span>
+    }
+
+    <label>Telephone:</label>
+    <input matInput type="tel" formControlName="phoneNumber" placeholder="write number" />
+    @if (registerForm.get('phoneNumber')?.invalid && registerForm.get('phoneNumber')?.touched) {
+      <span class="error-msg">Invalid phone number.</span>
+    }
+
+    <label>Password:</label>
+    <input matInput type="password" formControlName="password" placeholder="Min. 8 characters" />
+    @if (registerForm.get('password')?.invalid && registerForm.get('password')?.touched) {
+      <span class="error-msg">Password must be at least 8 characters.</span>
+    }
+
+    <button mat-raised-button color="warn" type="submit" [disabled]="registerForm.invalid">
+      Create Account
+    </button>
+  </form>
+</div>

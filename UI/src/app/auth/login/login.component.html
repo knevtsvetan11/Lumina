@@ -1,0 +1,23 @@
+<mat-card class="card">
+  <mat-card-header>
+    <h1>Login:</h1>
+  </mat-card-header>
+  <mat-card-content class="content" >
+    <form mat-form [formGroup]="loginForm">
+      <label>Email:</label>
+      <input mat-input formControlName="email" type="email"  autocomplete="nickname" placeholder="write email..." />
+        <label>Password:</label>
+      <input mat-input formControlName="password" type="password"  autocomplete="new-password" placeholder="write password..." />
+    </form>
+  
+  </mat-card-content>
+  <mat-card-actions>
+    <button mat-button (click)="onLogin()">Submit</button>
+     @if(isLoged()){
+    <div>
+        <mat-spinner diameter="20"></mat-spinner>
+        <span>loading..</span>
+    </div>
+ }
+  </mat-card-actions>
+</mat-card>

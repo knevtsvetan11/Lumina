@@ -1,0 +1,19 @@
+
+<div class="tick-conteiner" >
+
+  <div class="nav-bar">
+    <h4 class="logo">Tickets🎟️</h4>
+  </div>
+
+  @for (ticket of allTickets(); track ticket) {
+    <div class="cards" >
+      <h2>Cinema: {{ticket.cinemaName}}</h2>
+      <h2>Movie: {{ticket.screeningMovieName}}</h2>
+      <span class="tag-btn">{{ticket.showtime}}</span>
+      <span class="tag-btn">{{ticket.count}}x</span>
+      <span class="price-btn">{{ticket.price*ticket.count}}$</span>
+    </div>
+  }
+
+</div>
+

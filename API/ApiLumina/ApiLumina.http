@@ -1,0 +1,6 @@
+@ApiLumina_HostAddress = http://localhost:5199
+
+GET {{ApiLumina_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

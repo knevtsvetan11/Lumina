@@ -1,0 +1,13 @@
+<div class="modal-window">
+  <h2>Movie:{{ screening?.movieTitle }}</h2>
+  <h2>Select count tickets:{{ screening?.Price }}</h2>
+
+  <input
+    type="number"
+    (input)="ticketsCount.set($any($event.target).value)"
+    placeholder="Select tickets count..."
+  />
+
+  <button (click)="confirm()">Confirm</button>
+  <button (click)="close()">Close</button>
+</div>

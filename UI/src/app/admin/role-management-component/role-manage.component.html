@@ -1,0 +1,46 @@
+<mat-toolbar class="navbar">
+  <h1 class="title">Manage Role</h1>
+</mat-toolbar>
+
+<div class="main-wrapper">
+  <div class="role-list">
+    <h3>Roles:</h3>
+    <mat-card class="add-role-card">
+      <mat-card-title (click)="openCreateRoleDialog()">Add New Role+</mat-card-title>
+    </mat-card>
+    @for (role of roles(); track role.id) {
+      <mat-card
+        class="mat-card"
+        [class.active-role]="role.id === selectedRoleId()"
+        (click)="getRolePermissions(role.id)"
+      >
+        <mat-card-header
+          ><div mat-card-avatar>
+            <mat-icon>verified_user</mat-icon>
+          </div></mat-card-header
+        >
+        <mat-card-title>{{ role.name }}</mat-card-title>
+
+        <mat-card-actions>
+          <button mat-button (click)="openDeleteDialog(role)">Delete</button>
+        </mat-card-actions>
+      </mat-card>
+    }
+  </div>
+
+  <div class="permission-container">
+    <h3>Permissions:</h3>
+    <button class="save-btn" mat-button (click)="updateRolePermissions(selectedRoleId())">
+      Save
+    </button>
+    @for (perm of allPermissions(); track perm) {
+      <mat-checkbox
+        color="primary"
+        [checked]="selectedPermission().includes(perm)"
+        (change)="onChangePermission(perm, $event.checked)"
+      >
+        {{ perm }}
+      </mat-checkbox>
+    }
+  </div>
+</div>

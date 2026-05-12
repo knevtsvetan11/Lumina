@@ -1,0 +1,43 @@
+   <h2>Create new Screening:</h2>
+   <form  [formGroup]="form">
+
+      <mat-form-field>
+     <label>Cinemas:</label>
+     <mat-select formControlName="cinemaId">
+      @for(c of cinemas(); track c.id){
+        <mat-option [value]="c.id">
+          {{c.name}}
+        </mat-option>
+      }
+      </mat-select>
+      </mat-form-field>
+
+      <mat-form-field>
+      <label>Movies:</label>
+      <mat-select formControlName="movieId">
+      @for(m of movies(); track m.id){
+        <mat-option [value]="m.id">
+          {{m.title}}
+        </mat-option>
+      } 
+      </mat-select>
+      </mat-form-field>
+
+   <label>AvailableTickets:</label>
+   <input matInput formControlName="availableTickets">
+   <label>Showtime:</label>
+   <input matInput formControlName="showtime">
+
+   <button mat-button (click)="confirm()">Confirm</button>
+   <button mat-button (click)="cancel()">Cancel</button>
+
+   </form>
+
+
+
+
+
+ 
+
+
+

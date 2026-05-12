@@ -1,0 +1,70 @@
+<nav class="navbar">
+  <h2>Admin Inbox<mat-icon>message</mat-icon></h2>
+</nav>
+
+<search class="search">
+  Search<mat-icon class="search-title">search</mat-icon><input placeholder="Search messages..." />
+</search>
+
+<div class="main-wrapper">
+  <div class="messages-left">
+    @for (msg of this.chatSignalrService.activeMessages(); track msg.id) {
+      <mat-card class="message-card" (click)="loadChatHistory(msg)">
+        <mat-card-header [class.msg-notRead]="!msg.isRead">
+          <span class="username">
+            @if (onlineUsers().includes(msg.senderId)) {
+              <mat-icon class="status-online">fiber_manual_record</mat-icon>
+            } @else {
+              <mat-icon class="status-offline">fiber_manual_record</mat-icon>
+            }
+
+            {{ msg.senderFirstName }} {{ msg.senderLastName }}
+          </span>
+        </mat-card-header>
+
+        <mat-card-content [class.msg-notRead]="!msg.isRead">
+          {{ msg.message }}
+        </mat-card-content>
+      </mat-card>
+    }
+  </div>
+
+  <mat-card class="main-card">
+    <mat-card-header class="chat-title"> Chat </mat-card-header>
+    <mat-card-content class="msg-area" (scroll)="onScroll($event)">
+      @if (groupChatHistory().length == 0) {
+        <h1>Select user to chat...<mat-icon>chat</mat-icon></h1>
+      } @else {
+        @if (isFetching()) {
+          <div class="spinner">
+            <mat-spinner diameter="30"></mat-spinner>
+            <span>loading history....</span>
+          </div>
+        }
+        @for (msg of groupChatHistory(); track msg.id) {
+          @if (msg.senderId === adminId) {
+            <div class="right-bubble">
+              <span class="sent-time-right">{{ msg.sentAt | date: 'HH:mm' }}</span>
+              <p>{{ msg.message }}</p>
+              <mat-icon class="icon-admin">shield</mat-icon>
+            </div>
+          } @else {
+            <div class="left-bubble">
+              <mat-icon class="icon-user">person</mat-icon>
+              <span class="sent-time-left">{{ msg.sentAt | date: 'HH:mm' }}</span>
+              <p>{{ msg.message }}</p>
+            </div>
+          }
+        }
+      }
+    </mat-card-content>
+    <mat-card-actions>
+      <form [formGroup]="chatForm">
+        <input mat-input formControlName="text" placeholder="Send message..." />
+      </form>
+
+      <button mat-button (click)="sendMessage()">Send<mat-icon>send</mat-icon></button
+      ><mat-icon>photo</mat-icon>
+    </mat-card-actions>
+  </mat-card>
+</div>

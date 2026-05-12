@@ -1,0 +1,57 @@
+<mat-toolbar class="navbar">
+  <h1 class="title">Assign special permissions</h1>
+</mat-toolbar>
+
+<div class="main-wrapper">
+  <div class="search">
+    <label class="search-title">Search users:</label>
+    <input
+      matInput
+      placeholder="Search user..."
+      [formControl]="searchControl"
+      (input)="onSearch()"
+    />
+
+    <mat-label class="filter-title">Filter:</mat-label>
+
+    <select class="filter" [(ngModel)]="selectedOption" (selectionChange)="loadUsersPaged()">
+      @for (opt of filterOptions; track opt) {
+        <option [value]="opt.value">{{ opt.label }}</option>
+      }
+    </select>
+
+    <div class="users-wrapper">
+      <h3 class="users-title">Users:</h3>
+      @for (user of usersPaged(); track user.id) {
+        <mat-card
+          class="mat-card"
+          (click)="loadUserPermissions(user.id)"
+          [class.selected-user]="user.id === selectedUserId()"
+        >
+          <mat-card-header>{{ user.email }}</mat-card-header>
+        </mat-card>
+      }
+    </div>
+  </div>
+
+  <div class="permissions">
+    @if (userPermissions().length > 0) {
+      <button mat-button class="save-btn" (click)="savePermissions()">Save</button>
+      @for (perm of userPermissions(); track perm) {
+        <mat-checkbox
+          [checked]="perm.isGranted"
+          [disabled]="perm.isInheritedFromRole"
+          (change)="perm.isGranted = $event.checked"
+          >{{ perm.permissionValue }}</mat-checkbox
+        >
+      }
+    } @else {
+      <div class="card-right">
+        <h2 class="card-title">Select a user to show permissions:</h2>
+      </div>
+    }
+  </div>
+</div>
+
+<mat-paginator class="paginator" [length]="totalCount()" [pageSize]="10" (page)="loadUsersPaged()">
+</mat-paginator>

@@ -1,0 +1,62 @@
+.navbar {
+  position: fixed;
+  background-color: rgb(15, 12, 12);
+  color: rgb(255, 166, 0);
+  top: 0;
+  border-bottom: 2px solid #ff8800;
+  display: flex;
+  font-weight: bold;
+  font-size: 1.9rem;
+  z-index: 2;
+  .crt-btn {
+    margin-left: 50%;
+    background-color: rgb(135, 135, 209);
+  }
+}
+.screenings-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.5rem;
+  background: #000000e8;
+  padding: 2rem;
+}
+.screenings-card {
+  background: #111;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+  width: 200px;
+  box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+  transition: transform 0.2s;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.05);
+  }
+
+  img {
+    width: 100%;
+    height: auto;
+    border-radius: 6px;
+    margin-bottom: 0.5rem;
+  }
+
+  h3 {
+    margin: 0.3rem 0;
+    font-size: 1.2rem;
+    color: #ffd700;
+  }
+
+  .del-btn {
+    background-color: #ff5722;
+    margin-right: 1px;
+  }
+
+  .edit-btn {
+    background-color: gray;
+  }
+
+  .buy-btn {
+    background-color: white;
+  }
+}

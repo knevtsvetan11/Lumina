@@ -1,0 +1,17 @@
+<form [formGroup]="form">
+  <mat-form-field class="create-dialog">
+    <label mat-label>Create new Role:</label>
+    <input mat-input formControlName="roleName" placeholder="Write role..." />
+    @if (form.get('roleName')?.hasError('requered')) {
+      <mat-error>requered</mat-error>
+    }
+    @if (form.get('roleName')?.hasError('minlength')) {
+      <mat-error>minlength</mat-error>
+    }
+    @if (form.get('roleName')?.hasError('maxlength')) {
+      <mat-error>maxlength</mat-error>
+    }
+    <button mat-button (click)="save()">Save</button>
+    <button mat-button>Cancel</button>
+  </mat-form-field>
+</form>

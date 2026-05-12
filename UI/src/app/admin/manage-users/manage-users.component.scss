@@ -1,0 +1,64 @@
+mat-toolbar {
+  background-color: black;
+  display: flex;
+  position: fixed;
+  z-index: 1;
+  top: 0%;
+  width: 100%;
+}
+
+.crt-btn {
+  background-color: rgb(135, 135, 209);
+}
+
+.title {
+  color: orange;
+  margin-top: 20px;
+  font-size: larger;
+  width: 90%;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+}
+
+.search {
+  display: inline;
+  background-color: black;
+  color: white;
+  height: 60px;
+}
+
+.input {
+  width: 40%;
+  height: 30px;
+  margin-top: 10px;
+  margin-left: 10px;
+}
+
+.table-container {
+  color: red; 
+}
+
+.row-header {
+  background-color: rgb(135, 135, 209);
+}
+
+.paginator {
+  background-color: gray;
+}
+
+.del-btn {
+  background: rgb(218, 17, 17);
+}
+
+.unAct-btn {
+  margin-right: 2px;
+  background: rgb(218, 17, 17);
+}
+
+.act-btn {
+  margin-right: 2px;
+  background: rgb(41, 189, 41);
+}

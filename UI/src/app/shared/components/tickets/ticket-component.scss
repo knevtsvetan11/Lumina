@@ -1,0 +1,53 @@
+.tick-container {
+    background-color: black;
+}
+
+.nav-bar {
+    position: fixed;
+    top: 0%;
+    background-color: black;
+    width: 100%;
+    height: 13%;
+    font-size: 27px;
+
+
+}
+
+.logo {
+   margin-top: 1%;
+    margin-left: 42%;
+    font-size: 36px;
+    font-weight: bold;
+    background: linear-gradient(90deg, #ff6a00, #ee0979);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.cards {
+    background-color: rgba(0, 0, 0, 0.934);
+    color: rgba(255, 166, 0, 0.938);
+    font-size: 70%;
+    width: 30%;
+    height: 90px;
+    border-radius: 3%;
+    
+    
+
+
+
+}
+.tag-btn{
+    background-color: #ff6a00;
+    color: black;
+    border-radius: 5%;
+    font-size: 15px;
+    margin-left: 30%;
+}
+.price-btn{
+    background-color: #00ff15;
+    color: black;
+    border-radius: 5%;
+    font-size: 15px;
+    margin-left: 15%;
+}
+

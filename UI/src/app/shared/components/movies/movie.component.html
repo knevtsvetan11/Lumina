@@ -1,0 +1,43 @@
+<mat-toolbar class="navbar">
+  @if (authService.isAdmin()) {
+    <h1 class="title">Manage Movies📽️</h1>
+  } @else {
+    <h1 class="title">Movies📽️</h1>
+  }
+  <div class="search">
+    <mat-label>Search</mat-label><mat-icon>search</mat-icon>
+    <input class="input" placeholder="Search movies..." (input)="onSearch($event)" />
+  </div>
+
+  @if (authService.isAdmin()) {
+    <button mat-button class="crt-btn" (click)="openCreateDialog()"><i>CreateMovie+</i></button>
+  }
+</mat-toolbar>
+
+<div class="main-container">
+  <ul class="movie-cards">
+    @for (movie of displayedMovies(); track movie.id) {
+      <li class="movie-card">
+        <img [src]="movie.imageUrl" alt="noImage" />
+        <p>Title:{{ movie.title }}</p>
+        <p>Genre:{{ movie.genre }}</p>
+        <p>Director:{{ movie.director }}</p>
+        <p>Duration:{{ movie.duration }}</p>
+        <p>ReleaseData:{{ movie.releaseDate }}</p>
+        <button mat-button class="det-btn" [routerLink]="['/movies', movie.id]">Details</button>
+        @if (authService.isAdmin()) {
+          <button mat-button class="del-btn" (click)="openDeleteDialog(movie)">Delete</button>
+          <button mat-button class="edit-btn" (click)="openUpdateDialog(movie)">Edit</button>
+        }
+      </li>
+    }
+  </ul>
+
+  <mat-paginator
+    class="paginator"
+    [pageSize]="5"
+    [length]="filteredMovies().length"
+    (page)="onPageChange($event)"
+  >
+  </mat-paginator>
+</div>

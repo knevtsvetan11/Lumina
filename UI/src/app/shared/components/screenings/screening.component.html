@@ -1,0 +1,30 @@
+<mat-toolbar class="navbar">
+  @if (authService.isAdmin()) {
+    <p>
+      <strong>Manage Screenings: {{ screenings()[0]?.cinemaName }}</strong>
+    </p>
+    <button mat-button class="crt-btn" (click)="openCreateDialog()">Create+</button>
+  } @else {
+    <p>
+      <strong>Screenings: {{ screenings()[0]?.cinemaName }}</strong>
+    </p>
+  }
+</mat-toolbar>
+
+<div class="screenings-row">
+  @for (screening of screenings(); track screening) {
+    <div class="screenings-card">
+      <img [src]="screening.movieImageUrl" alt="{{ screening.movieTitle }}" />
+      <p><strong>Title:</strong>{{ screening.movieTitle }}</p>
+      <p><strong>Available Tickets:</strong>{{ screening.availableTickets }}</p>
+      <!-- <p><strong>Showtime:</strong>{{screening.showtime}}</p> -->
+      @if (authService.isAdmin()) {
+        <button mat-button class="del-btn" (click)="openDeleteDialog(screening)">Delete</button>
+        <button mat-button class="edit-btn" (click)="openEditDialog(screening)">Edit</button>
+      }
+      @if (!authService.isAdmin() && authService.isLoggedIn()) {
+        <button mat-button class="buy-btn" (click)="openBuyDialog(screening)">Buy</button>
+      }
+    </div>
+  }
+</div>

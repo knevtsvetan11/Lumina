@@ -1,0 +1,9 @@
+<mat-form-field [formGroup]="form">
+  <h3>Create new Cinema</h3>
+  <label>Name:</label>
+  <input matInput formControlName="name" />
+  <label>Location:</label>
+  <input matInput formControlName="location" />
+  <button mat-button (click)="confirm()">Confirm</button>
+  <button mat-button (click)="cancel()">Cancel</button>
+</mat-form-field>

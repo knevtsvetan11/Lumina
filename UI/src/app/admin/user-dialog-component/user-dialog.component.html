@@ -1,0 +1,38 @@
+<h2 mat-dialog-title>{{ data.isEditMode ? 'Edit' : 'Create' }} User:</h2>
+
+<form class="form" [formGroup]="form">
+  <mat-form-field>
+    <mat-label>Email</mat-label>
+    <input matInput formControlName="email" />
+    @if (form.controls.email.hasError('required')) {
+      <mat-error>Email is requered</mat-error>
+    }
+    @if (form.controls.email.hasError('emailIsTaken') && form.controls.email.touched) {
+      <mat-error>Email is taken</mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Password</mat-label>
+    <input type="password" matInput formControlName="password" />
+    @if (form.controls.password.hasError('passwordStrength')) {
+      <mat-error>Password must have 1 symbol and uppercase</mat-error>
+    }
+    @if (
+      form.controls.password.hasError('minlength') || form.controls.password.hasError('maxlength')
+    ) {
+      <mat-error>Length must be min-6 max-20 </mat-error>
+    }
+  </mat-form-field>
+
+  <mat-form-field>
+    <mat-label>Role</mat-label>
+    <mat-select formControlName="role">
+      <mat-option value="User">User</mat-option>
+      <mat-option value="Moderator">Moderator</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button class="sub-btn" mat-button (click)="submit()">Submit</button>
+  <button class="can-btn" mat-button (click)="cancel()">Cancel</button>
+</form>

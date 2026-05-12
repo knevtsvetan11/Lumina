@@ -1,0 +1,26 @@
+.card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  height: 70%;
+  background-color: rgba(0, 0, 0, 0.564);
+}
+.content {
+  display: flex;
+   justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+span {
+  color: orange;
+}
+label {
+  color: orange;
+}
+button {
+  background-color: orange;
+}
+h1 {
+  color: orange;
+}

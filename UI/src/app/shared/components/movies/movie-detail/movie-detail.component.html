@@ -1,0 +1,35 @@
+@if (movie(); as m) {
+  <div class="movie-detail">
+    <h2>{{ m.title }}</h2>
+    <div class="movie-meta">
+      <p><strong>Genre:</strong> {{ m.genre }}</p>
+      <p><strong>Director:</strong> {{ m.director }}</p>
+      <p><strong>ReleaseDate:</strong> {{ m.releaseDate | date: 'longDate' }}</p>
+      <p><strong>Duration:</strong> {{ m.duration }} min.</p>
+    </div>
+    <div class="movie-description">
+      <h3>Description</h3>
+      <p>{{ m.description }}</p>
+    </div>
+    <div class="movie-poster">
+      <img [src]="m.imageUrl" alt="{{ m.title }} poster" />
+    </div>
+    <div class="actions">
+      <button (click)="goBack()" class="btn back">⬅ Back</button>
+      @if (authService.isLoggedIn()) {
+        <div>
+          @if (!inWatchlist()) {
+            <button (click)="addToWatchlist(m.id)" class="add-btn">❤️AddToWatchlist</button>
+          }
+          @if (inWatchlist()) {
+            <button (click)="removeFromWatchlist(m.id)">RemoveFromWatchlist</button>
+          }
+        </div>
+      }
+    </div>
+  </div>
+}
+
+<div>
+  <p>Load data for movie...</p>
+</div>

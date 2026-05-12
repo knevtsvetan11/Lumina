@@ -1,0 +1,37 @@
+# ==========================================
+# Lumina Master GitIgnore (Full Stack)
+# ==========================================
+
+# --- Visual Studio & IDE Junk (Fixes "Permission Denied") ---
+.vs/
+*.vsidx
+*.slnx
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+.vscode/
+.idea/
+
+# --- UI (Angular) Specific ---
+**/node_modules/
+*/dist/
+**/.angular/
+UI/.editorconfig
+UI/package-lock.json
+
+
+# --- API (.NET) Specific ---
+API/bin/
+API/obj/
+API/.vs/
+API/appsettings.Development.json
+API/Properties/launchSettings.json
+
+# --- OS & General ---
+.DS_Store
+Thumbs.db
+[Oo]bj/
+[Bb]in/
+log/
+*.log

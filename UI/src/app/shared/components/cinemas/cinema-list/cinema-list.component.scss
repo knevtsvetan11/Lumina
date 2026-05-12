@@ -1,0 +1,86 @@
+mat-toolbar {
+    background-color: black;
+    position: fixed;
+    top: 0%;
+
+}
+
+.crt-btn{
+   background-color: rgb(135, 135, 209);
+   margin-left: 70%;
+}
+.del-btn{
+    background-color: #FF5722;
+    height: 37px;
+}
+.mat-btn {
+    background-color: gray;
+    color: black;
+    margin-left: 1%;
+    margin-bottom: 1%;
+    
+
+}
+
+.cinema-title {
+    color: rgb(204, 180, 23);
+    font-size: 1.8rem;
+    /* големина на текста */
+    font-weight: bold;
+    /* прави текста дебел */
+}
+
+
+
+.cinema-row {
+    display: flex;
+    /* филмите един до друг */
+    flex-wrap: wrap;
+    /* пренася ги на нов ред ако няма място */
+    gap: 1.5rem;
+    /* разстояние между картите */
+    background: #000000e8;
+    /* черен фон зад всички филми */
+    padding: 2rem;
+}
+
+.cinema-card {
+
+    background: #111;
+    /* тъмен фон за всяка карта */
+    color: rgb(255, 174, 0);
+    /* бял текст за контраст */
+    padding: 1rem;
+    border-radius: 8px;
+    width: 200px;
+    /* фиксирана ширина за равномерни карти */
+    box-shadow: 0 0 10px rgba(255, 215, 0, 0.3);
+    transition: transform 0.2s;
+    cursor: pointer;
+
+    &:hover {
+        transform: scale(1.05);
+    }
+
+    img {
+        width: 100%;
+        /* снимката да запълва картата */
+        height: auto;
+        border-radius: 6px;
+        margin-bottom: 0.5rem;
+    }
+
+    h3 {
+        margin: 0.3rem 0;
+        font-size: 1.2rem;
+        color: #ffd700;
+        /* златен акцент за заглавието */
+    }
+
+    p {
+        font-size: 0.9rem;
+        margin: 0.2rem 0;
+        line-height: 1.4;
+    }
+
+}
