@@ -25,4 +25,8 @@
     <ProjectReference Include="..\Lumina.Services.Core\Lumina.Services.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="Area\Identity\DTO%27s\Register\" />
+  </ItemGroup>
+
 </Project>

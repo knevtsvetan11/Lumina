@@ -4,7 +4,9 @@ using ApiLumina.Area.Identity.DTO_s.Login;
 using ApiLumina.Area.Identity.DTO_sl;
 using ApiLumina.Area.Identity.Services.Interfaces;
 using AutoMapper;
+using Lumina.Common.Shared;
 using Lumina.Data.Models;
+using MassTransit;
 using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -26,14 +28,16 @@ public class AuthService : IAuthService
     private readonly JwtSettings _jwtSettings;
     private RoleManager<IdentityRole<Guid>> _roleManager;
     private IHttpContextAccessor _accessor;
+    private IPublishEndpoint _publishEnpoint;
     public AuthService(RoleManager<IdentityRole<Guid>> roleManager, UserManager<ApplicationUser> userManager,
-        IMapper mapper, IOptions<JwtSettings> jwtSettings, IHttpContextAccessor accessor)
+        IMapper mapper, IOptions<JwtSettings> jwtSettings, IHttpContextAccessor accessor,IPublishEndpoint publishEndpoint)
     {
         this._userManager = userManager;
         this._mapper = mapper;
         this._jwtSettings = jwtSettings.Value;
         this._roleManager = roleManager;
         this._accessor = accessor;
+        this._publishEnpoint = publishEndpoint;
     }
 
     public string GetUserId()
@@ -65,9 +69,15 @@ public class AuthService : IAuthService
 
         var result = await this._userManager.CreateAsync(createUser, request.Password);
 
-
+       
         await _userManager.AddToRoleAsync(createUser, "User");
-
+        _publishEnpoint.Publish(new UserRegisteredEvent
+        {
+            UserId = createUser.Id,
+            Email = createUser.Email,
+            Username = createUser.UserName,
+            RegisteredAt = createUser.CreatedAt
+        });
 
         return result;
 
