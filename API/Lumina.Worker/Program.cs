@@ -15,11 +15,9 @@ var settings = new HostApplicationBuilderSettings
     Args = args,
     EnvironmentName = Environments.Development
 };
-//stop connect with docker rabbitMQ
-//to do create console app
+
 var builder = Host.CreateApplicationBuilder(settings);
 
-// Force the builder to look for User Secrets explicitly
 if (builder.Environment.IsDevelopment())
 {
     builder.Configuration.AddUserSecrets(Assembly.GetExecutingAssembly(), optional: true);
@@ -55,4 +53,3 @@ builder.Services.AddMassTransit(x =>
 var app  = builder.Build();
     
  await app.RunAsync();
-///     
